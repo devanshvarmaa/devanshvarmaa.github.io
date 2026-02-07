@@ -113,7 +113,7 @@
             Will you be my Valentine?
         </h1>
 
-        <!-- Buttons Container: Flex row keeps them side by side initially -->
+        <!-- Buttons Container -->
         <div id="btnContainer" class="flex flex-row items-center justify-center gap-4 md:gap-8 min-h-[80px] relative">
             <button id="yesBtn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full text-xl transform transition hover:scale-110 shadow-lg z-20 w-32">
                 Yes
@@ -126,10 +126,10 @@
         <!-- Success Content -->
         <div id="successContent" class="hidden mt-4 space-y-4">
             <p class="text-2xl text-pink-600 font-bold animate-bounce">
-                I Love you So much! ❤️
+               I Love you SOOOOO Much! ❤️
             </p>
             <p class="text-gray-600">
-                You just made my whole Month!
+                You just made The Happiest Boyfreind!
             </p>
         </div>
     </div>
@@ -166,7 +166,6 @@
         createHearts();
 
         const moveButton = () => {
-            // Switch to absolute once the runaway starts
             if (noBtn.style.position !== 'absolute') {
                 noBtn.style.position = 'absolute';
             }
@@ -209,9 +208,13 @@
         yesBtn.addEventListener('click', () => {
             confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
             question.innerHTML = "Yay! <br><span class='text-2xl mt-2 block'>I'm the luckiest person alive! 😉</span>";
+            
+            // Hide all potential first-screen interactive elements
             btnContainer.style.display = 'none';
+            noBtn.style.display = 'none'; // Explicitly hide the no button
             convinceBtn.style.display = 'none';
             document.getElementById('aiMessageContainer').classList.add('hidden');
+            
             successContent.classList.remove('hidden');
             mainImage.innerHTML = `
                 <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-lg text-pink-500 fill-current animate-bounce">
